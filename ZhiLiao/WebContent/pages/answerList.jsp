@@ -10,7 +10,7 @@
 
                 <title>Knowledge Base Theme</title>
 
-                <link rel="shortcut icon" href="images/favicon.png" />
+                <link rel="shortcut icon" href="../images/favicon.png" />
 
                 <!-- Style Sheet-->
                 <link rel="stylesheet" href="style.css"/>
@@ -93,8 +93,8 @@
                                 <p class="search-tag-line">问题补充，大家回答的时候，希望大家分清没有文化和没有知识之间的区别。有文化的人，不一定有知识，比如某文盲高僧。有知识的人，也不一定有文化，比如某些砖家叫兽。</p> 
                                 </div>  
                                 <div class="question-Opt">
-                                    <a href=""><img src="../images/write.png"></a><br><br>
-                                    <img src="../images/attetion.png">
+                                    <a href=""><img src="../images/写.png"></a><br><br>
+                                    <img src="../images/关注.png">
                                 </div>                            
                         </div>
                 </div>
@@ -116,7 +116,7 @@
                                                                			<img src="../images/testUs.jpg">&nbsp;&nbsp;
                                                                         <a href="single.html">用户名</a> &nbsp;&nbsp;
                                                                         我就是那个用户
-                                                                   
+                                                                         
                                                                 </h5>
                                                                
 
@@ -135,17 +135,62 @@
                                                         	 <div class="post-meta clearfix">
                                                                         <span class="date">2016-12-11</span>
                                                                         <span class="category"><a href="#" title="View all posts in Server &amp; Database">收藏</a></span>
-                                                                        <span class="comments"><a id="showCmt">3 条评论</a></span>
+                                                                        <span class="comments"><a id="showCmt" title="Comment on Integrating WordPress with Your Website">3 条评论</a></span>
                                                                         <span class="like-count">66 </span>
                                                                 </div>
-                                                        		<div class="comment-list" style="display:none">
-                                                                	<p>这里放评论列表</p>
+                                                        		<div class="comment-list">
+                                                                	<!--<p>这里放评论列表</p>-->
+                                                                    <div class="CommentItem">
+                                                                    	<p><a>周杰伦</a></p>
+                                                                        <h5>其实我也知道没文化很可怕啦</h5>
+                                                                         <div class="post-meta clearfix">
+                                                                        	<span class="date">2016-12-11</span>
+                                                                        	<span class="comments"><a class="writeCmtBack">回复</a></span>
+                                                                       		<span class="like-count">66 </span>
+                                                                		 </div>
+                                                                         <!--<div required="" value="" placeholder="写下你的评论…" class="cmtBack" data-input-box="true" >
+                                                                         </div>-->
+                                                                        <!-- <div>
+                                                                         </div>-->
+                                                                         <form action="" class="cmtBack">
+                                                                            <textarea class="cmtBack"> </textarea>
+                                                                            <!--<button></button>-->
+                                                                            <div class="cmtBack-btn">
+                                                                                <input type="button" value="取消" align="right"/>
+                                                                            	<input type="button" value="回复" align="right"/>
+                                                                            </div> 
+                                                                         </form>
+                                                                    </div>
+                                                                    <hr color="#333333">
+                                                                    <div class="_CommentItem">
+                                                                    	<p><a>周杰伦</a></p>
+                                                                        <p>其实我也知道没文化很可怕啦</p>
+                                                                         <div class="post-meta clearfix">
+                                                                        	<span class="date">2016-12-11</span>
+                                                                        	<span class="comments"><a>回复</a></span>
+                                                                       		<span class="like-count">66 </span>
+                                                                		 </div>
+                                                                    </div>
+                                                                    <div class="_CommentItem">
+                                                                    	<p><a>周杰伦</a></p>
+                                                                        <p>其实我也知道没文化很可怕啦</p>
+                                                                         <div class="post-meta clearfix">
+                                                                        	<span class="date">2016-12-11</span>
+                                                                        	<span class="comments"><a>回复</a></span>
+                                                                       		<span class="like-count">66 </span>
+                                                                		 </div>
+                                                                    </div>
                                                                 </div>
                                                         </footer>
 
                                                 </article>
                           
-
+												<div class="comment-list">
+                                                	<form action="">
+                                                	<textarea placeholder="在此写下对该回答的评论..."></textarea>
+                                                    <input type="button" value="评论">
+                                                    </form>
+                                                </div>
                                                 <div id="pagination">
                                                        <!-- <a href="#" class="btn active">1</a>
                                                         <a href="#" class="btn">2</a>
@@ -249,15 +294,14 @@
                 <a href="#top" id="scroll-top"></a>
 
                 <!-- script -->
-                <script type='text/javascript' src='js/jquery-1.8.3.min.js'></script>
-                <script type='text/javascript' src='js/jquery.easing.1.34e44.js?ver=1.3'></script>
-                <script type='text/javascript' src='js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4'></script>
-                <script type='text/javascript' src='js/jquery.liveSearchd5f7.js?ver=2.0'></script>
-				<script type='text/javascript' src='js/jflickrfeed.js'></script>
-                <script type='text/javascript' src='js/jquery.formd471.js?ver=3.18'></script>
-                <script type='text/javascript' src='js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
-                <script type='text/javascript' src='js/custom5152.js?ver=1.0'></script>
-                <script type='text/javascript' src='js/answerListJs.js'></script>
-
+                <script type='text/javascript' src='../js/jquery-1.8.3.min.js'></script>
+                <script type='text/javascript' src='../js/jquery.easing.1.34e44.js?ver=1.3'></script>
+                <script type='text/javascript' src='../js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4'></script>
+                <script type='text/javascript' src='../js/jquery.liveSearchd5f7.js?ver=2.0'></script>
+				<script type='text/javascript' src='../js/jflickrfeed.js'></script>
+                <script type='text/javascript' src='../js/jquery.formd471.js?ver=3.18'></script>
+                <script type='text/javascript' src='../js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
+                <script type='text/javascript' src='../js/custom5152.js?ver=1.0'></script>
+                <script type='text/javascript' src='../js/answerListJs.js'></script>
 </body>
 </html>

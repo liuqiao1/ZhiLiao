@@ -58,7 +58,7 @@
                                                                 <li><a href="home-categories-articles.html">我的主页</a>
                                                                         <ul class="sub-menu">
                                                                                 <li><a href="blue-skin.html">我提的问题</a></li>
-                                                                                <li><a href="green-skin.html">我的回答</a></li>
+                                                                                <li><a href="AnswerServlet?method=showMyAnswers">我的回答</a></li>
                                                                                 <li><a href="red-skin.html">我赞过</a></li>
                                                                                 <li><a href="index-2.html">我的评论</a></li>
                                                                                 <li><a href="index-2.html">我的收藏</a></li>

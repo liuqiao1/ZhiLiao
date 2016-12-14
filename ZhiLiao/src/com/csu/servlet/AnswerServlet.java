@@ -2,12 +2,14 @@ package com.csu.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.csu.bean.Answer;
 import com.csu.dao.AnswerDao;
@@ -36,8 +38,10 @@ public class AnswerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +50,7 @@ public class AnswerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		String methodName = request.getParameter("method");
-		System.out.println(methodName);
+		System.out.println("methodName:"+methodName);
 	        try {
 	            // 利用反射获取方法
 	            Method method = getClass().getDeclaredMethod(methodName,
@@ -89,6 +93,20 @@ public class AnswerServlet extends HttpServlet {
 	    	
 	    }
 		//return null;		
+	}
+	
+	public void showMyAnswers(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		//System.out.println("showMyAnswers....");
+		List<Answer> myAnswers=answerDao.getAnswerByUserId(1);
+		//System.out.println("myAnswers:"+myAnswers);
+		if (myAnswers.size()==0) {
+			System.out.println("你还没有回答过任何问题");
+		}
+		else{
+			HttpSession session = request.getSession();
+			session.setAttribute("myAnswers", myAnswers);
+			response.sendRedirect("pages/myAnswers.jsp");
+		}
 	}
 
 }
