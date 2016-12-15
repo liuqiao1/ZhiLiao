@@ -1443,9 +1443,7 @@ a#scroll-top:hover {
 .js-textarea{
 	width:645px;
 	height:47px;
-	font-size:32px; 
-	font-weight: 400;
-	vertical-align:top;
+	font-size:20px;
 }
 /* answers-list*/
 .question-Des{
@@ -1615,7 +1613,12 @@ a#scroll-top:hover {
 	font-size:20px;
 }
 
-.deltete-answer{
-	background-image:url(../images/delete.png)
+.delete-answer{
+	position: absolute;
+  	top: 10px;
+  	right: 43px;
+  	line-height: 18px;
+  	font-weight: 600;
+  	padding: 3px 5px 3px 20px;
 }
 
