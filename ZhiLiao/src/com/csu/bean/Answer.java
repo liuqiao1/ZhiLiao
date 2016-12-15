@@ -9,6 +9,7 @@ public class Answer {
 	private int answerId;//回答编号
 	private String answerContent;//回答内容
 	private String answerDate;//回答时间
+	private String asLastUpdateDate;
 	//private ? answerUser;//回答者：王俊强的user POJO写出来后引用	
 	private User user;
 	//private ? question;//问题：老司机的question POJO写出来后引用
@@ -61,9 +62,14 @@ public class Answer {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public String getAsLastUpdateDate() {
+		return asLastUpdateDate;
+	}
 	
-	
-	
+	public void setAsLastUpdateDate(String asLastUpdateDate) {
+		this.asLastUpdateDate = asLastUpdateDate;
+	}
 	public Answer() {
 		// TODO Auto-generated constructor stub
 	}
@@ -120,8 +126,8 @@ public class Answer {
 	@Override
 	public String toString() {
 		return "Answer [answerId=" + answerId + ", answerContent=" + answerContent + ", answerDate=" + answerDate
-				+ ", user=" + user + ", question=" + question + ", answerSupport=" + answerSupport + ", isAnoy="
-				+ isAnoy + "]";
+				+ ", asLastUpdateDate=" + asLastUpdateDate + ", user=" + user + ", question=" + question
+				+ ", answerSupport=" + answerSupport + ", isAnoy=" + isAnoy + "]";
 	}
 		
 }
