@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,12 +23,12 @@
 
                 <!-- Style Sheet-->
                 <link rel="stylesheet" href="style.css"/>
-                <link rel='stylesheet' id='bootstrap-css-css'  href='../css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='responsive-css-css'  href='../css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='pretty-photo-css-css'  href='../js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-                <link rel='stylesheet' id='main-css-css'  href='../css/main5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='bootstrap-css-css'  href='http://localhost:8080/ZhiLiao/css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='responsive-css-css'  href='http://localhost:8080/ZhiLiao/css/responsive5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='pretty-photo-css-css'  href='http://localhost:8080/ZhiLiao/js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
+                <link rel='stylesheet' id='main-css-css'  href='http://localhost:8080/ZhiLiao/css/main5152.css?ver=1.0' type='text/css' media='all' />
                 
-                <link rel='stylesheet' id='custom-css-css'  href='../css/custom5152.html?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='custom-css-css'  href='http://localhost:8080/ZhiLiao/css/custom5152.html?ver=1.0' type='text/css' media='all' />
 				
 
                 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -33,7 +38,22 @@
 
         </head>
 <body>
-
+				<% 
+					String formAction;
+                	String buttonValue;
+					if(request.getAttribute("answerWaitToUpdate")==null)
+					{
+						
+						formAction="../AnswerServlet?method=submitAnswer";
+						buttonValue="提交回答";
+					
+					}
+					else{
+						//http://localhost:8080/ZhiLiao/AnswerServlet
+						formAction="http://localhost:8080/ZhiLiao/AnswerServlet?method=updateAnswer";
+						buttonValue="修改回答";
+					}
+				%>
                 <!-- Start of Header -->
                 <div class="header-wrapper">
                         <header>
@@ -95,7 +115,7 @@
                 <!-- Start of Search Wrapper -->
 
                 <!-- End of Search Wrapper -->
-              <!--  <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a></div>-->
+           
                 <!-- Start of Page Container -->
                 <div class="page-container">
                         <div class="container">
@@ -107,10 +127,13 @@
                                                 <!-- start of title content -->
                                                 <!-- 取问题标题放置在textarea中 -->
                                         		<div class="atticle_title">
-                                                	<textarea class="js-textarea"  
+                                        			<img src="http://localhost:8080/ZhiLiao/images/question-blue.png">&nbsp;&nbsp;
+                                                	<a class="js-textarea"  
                                                 	 name="title" 
                                                 	 disabled="disabled"   	
-                                                	 style="height: 47px;"></textarea>
+                                                	 style="height: 47px;">
+                                                	 ${requestScope.answerWaitToUpdate.question.questionTitle }
+                                                	 </a>
                                                 </div>
                                                 <!-- end of title content -->
                         
@@ -118,24 +141,32 @@
                                                 <div class="article_content">
                                                  <%-- <%@include file="../plugin/utf8-jsp/demo.html"%>  --%>
                                                  
-                                                 <form action="../AnswerServlet?method=submitAnswer" method="POST">
-                                                 <textarea id="container" 
-                                                  name="container" style="height: 400px; margin: 0 auto;">
-												 </textarea> 
+                                                 <form action=<%=formAction %> method="POST">
+                                                 	 <input name="answerIdInput" type="text" style="display:none;" value=${requestScope.answerWaitToUpdate.answerId } >
+	                                                 <textarea id="container" 
+	                                                  name="container" style="height: 400px; margin: 0 auto;">
+	                                                  ${requestScope.answerWaitToUpdate.answerContent } 
+													 </textarea> 
 												 
 												 <!-- <input type="submit" value="提交">
 												 <input type="submit" value="取草稿"> -->
 												  <div>		 
 												   <input class="" name="isAnoy" type="checkbox">匿名回答
-												   <input class="btn" name="submit" type="submit" id="submit"  value="提交回答">
+												 <%--   <c:if test="${requestScope.answerWaitToUpdate!=null }"><!-- 当前是修改回答 -->
+												   		<input class="btn" name="submit" type="submit" id="submit"  value="确定修改">
+												   </c:if>
+												   <c:if test=""><!-- 当前是写新回答 -->
+												   		<input class="btn" name="submit" type="submit" id="submit"  value="提交回答">
+												   </c:if> --%>
+												   <input class="btn" name="submit" type="submit" id="submit"  value=<%=buttonValue %>>
 												   <input class="btn" name="submit" type="submit" id="submit"  value="取出草稿">
 												  </div>
 												 </form>                                
     												
 												    <!-- 配置文件 -->
-												    <script type="text/javascript" src="../plugin/utf8-jsp/ueditor.config.js"></script>
+												    <script type="text/javascript" src="http://localhost:8080/ZhiLiao/plugin/utf8-jsp/ueditor.config.js"></script>
 												    <!-- 编辑器源码文件 -->
-												    <script type="text/javascript" src="../plugin/utf8-jsp/ueditor.all.js"></script>
+												    <script type="text/javascript" src="http://localhost:8080/ZhiLiao/plugin/utf8-jsp/ueditor.all.js"></script>
 												    <!-- 实例化编辑器 -->
 												    
 													<script type="text/javascript">
@@ -253,8 +284,8 @@
                 <script type='text/javascript' src='js/jquery.validate.min.js'></script>
                 <script type='text/javascript' src='js/custom.js'></script>
                 <script src="../plugin/utf8-jsp/ueditor.parse.js"></script>
-  		        uparse('.article_content',{
+  		        <!-- uparse('.article_content',{
 		        	rootpath:'../plugin/utf8-jsp'
-		        })
+		        }) -->
         </body>
 </html>
