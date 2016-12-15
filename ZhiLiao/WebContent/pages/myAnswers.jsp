@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -129,18 +135,24 @@
                             </c:if>
                             <footer>
                             	 <div class="post-meta clearfix">
-                                            <span class="date">${answer.answerDate }</span>
+                                            <span class="date">发布${answer.answerDate }</span>
+                                            
+                                            <c:if test="${not empty answer.asLastUpdateDate }">
+                                            	<span class="date">最后修改${answer.asLastUpdateDate }</span>
+                                            </c:if>
+                                            
                                             <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 条评论</a></span>
                                             <span class="like-count">${answer.answerSupport }</span>
-                                            <span class="like-count">操作</span>
-                                            <!-- <span class="deltete-answer">删除</span>
-                                            <span class="update-answer">修改</span> -->
+                                           <!--  <span class="deltete-answer"><a>删除</a></span>
+                                            <span class="like-count"><a>修改</a></span> -->
+                                            <a href="../AnswerServlet?method=deleteAnswer&answerId=${answer.answerId }">删除</a>
+                                            <a href="../AnswerServlet?method=goEdit&answerId=${answer.answerId }">修改</a>
                                  </div>
-                            
                             </footer> 
                             
                          </article>
-                      </c:forEach> 
+                      </c:forEach>
+                     </article>
                    </div>  
                                  
                 </div>
