@@ -94,7 +94,7 @@ public class AnswerDaoImpl implements AnswerDao{
 	public boolean updateAnswer(int answerId, Answer answer) {
 		// TODO Auto-generated method stub
 		System.out.println("new answer:"+answer);
-		String sql="update answer SET answerContent=?,answerDate=?,asIsAnoy=? WHERE answerId=?";
+		String sql="update answer SET answerContent=?,asLatsUpdateDate=?,asIsAnoy=? WHERE answerId=?";
 				
 		connection = DBUtil.getConnection();
 		try {
@@ -263,6 +263,7 @@ public class AnswerDaoImpl implements AnswerDao{
 				answer.setAnswerDate(rs.getString("answerDate"));
 				answer.setAnswerSupport(rs.getInt("support"));
 				answer.setIsAnoy(rs.getInt("asIsAnoy"));
+				answer.setAsLastUpdateDate(rs.getString("asLatsUpdateDate"));
 				
 				question=new Question();
 				question.setQuestionTitle(rs.getString("questionTitle"));
@@ -276,6 +277,32 @@ public class AnswerDaoImpl implements AnswerDao{
 			e.printStackTrace();
 		}
 		return answers;
+	}
+
+	/**
+	 * 根据编号删除一条回答
+	 * @author 刘巧
+	 * @param answer 待删除的回答
+	 * @return 是否删除成功：true代表成功，false代表失败
+	 * @time 创建时间：2016-12-15 修改时间：2016-12-15
+	 */
+	@Override
+	public boolean deleteAnswerById(int answerId) {
+		// TODO Auto-generated method stub
+		String sql="delete from answer WHERE answer.answerId=?";
+		connection = DBUtil.getConnection();
+		try {
+			ps=(PreparedStatement) connection.prepareStatement(sql);
+			ps.setInt(1, answerId);			
+			result=ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		if (result==0) {
+			return false;
+		}
+		else return true;
 	}
 	
 }
