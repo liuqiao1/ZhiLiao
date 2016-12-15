@@ -108,5 +108,61 @@ public class AnswerServlet extends HttpServlet {
 			response.sendRedirect("pages/myAnswers.jsp");
 		}
 	}
+	
+	public void deleteAnswer(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("deleteAnswer....");
+		System.out.println(request.getParameter("answerId"));
+		int answerId=Integer.parseInt(request.getParameter("answerId"));
+		boolean result=answerDao.deleteAnswerById(answerId);
+		if (result) {//删除成功；
+			showMyAnswers(request, response);
+		}
+		else{//删除失败
+			System.out.println("删除失败");
+		}
+	}
+	
+	public void updateAnswer(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		System.out.println("updateAnswer....");
+		String word_content = request.getParameter("container");
+		String isAnoy=request.getParameter("isAnoy");
+		//System.out.println(request.getParameter("answerIdInput"));
+		int answerId=Integer.parseInt(request.getParameter("answerIdInput"));
+		
+		Answer answer=new Answer();
+	    answer.setAnswerContent(word_content);
+	    answer.setAnswerDate(TimeUtil.getCurrentTime());
+	    //answer.setAnswerSupport(0);
+	    if (isAnoy==null) {
+	    	answer.setIsAnoy(0);
+		}
+	    else answer.setIsAnoy(1);
+	    //取出当前问题的回答
+	    //answer.setQuestion(question);
+	    //从session中取出当前用户
+	    //answer.setUser(user);
+	    //调用dao 插入数据库
+	    boolean result=answerDao.updateAnswer(answerId, answer);
+	    //根据执行结果选择跳转
+	    if (result) {//回答成功:跳转到 问题详情页
+			//response.sendRedirect("");
+	    	System.out.println("修改成功");
+		}
+	    else{//回答失败 //可选择留在写回答页  或者 返回问题详情页
+	    	//response.sendRedirect("");
+	    	System.out.println("修改失败");
+	    }
+		//return null;		
+		
+	}
+	
+	public void goEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int answerId=Integer.parseInt(request.getParameter("answerId"));
+		Answer answer=answerDao.getAnswerById(answerId);
+		System.out.println(answer);
+		request.setAttribute("answerWaitToUpdate", answer);
+		request.getRequestDispatcher("pages/writeAnswer.jsp").forward(request,response);
+	}
 
 }
