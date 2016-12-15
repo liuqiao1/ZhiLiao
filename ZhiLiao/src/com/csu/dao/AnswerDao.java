@@ -50,6 +50,15 @@ public interface AnswerDao {
 	public boolean updateAnswer(int answerId,Answer answer);
 	
 	/**
+	 * 修改回答点赞数 ++
+	 * @author 刘巧
+	 * @param answerId 回答编号
+	 * @return 是否修改成功：true代表成功，false代表失败
+	 * @time 创建时间：2016-12-15 修改时间：2016-12-15
+	 */
+	public boolean updateAnswerSupport(int answerId);
+	
+	/**
 	 * 根据回答编号查找一条回答
 	 * @author 刘巧
 	 * @param answerId 待查找回答的编号

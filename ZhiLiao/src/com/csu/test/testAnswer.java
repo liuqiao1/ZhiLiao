@@ -23,7 +23,8 @@ public class testAnswer {
 	   // test.testUpdate();
 	   // test.testFindAnswerById();
 	   // test.testFindAnswersByQuestion();
-	    test.testFindAnswersByUser();
+	   // test.testFindAnswersByUser();
+	    testUpdateSupport();
 	}
 	
 	public void testInsert() {
@@ -74,6 +75,12 @@ public class testAnswer {
 		AnswerDao answerDao=new AnswerDaoImpl();
 		List<Answer> answers=answerDao.getAnswerByUserId(1);
 		System.out.println(answers);
+	}
+	
+	public static void testUpdateSupport() {
+		AnswerDao answerDao=new AnswerDaoImpl();
+		boolean result=answerDao.updateAnswerSupport(2);
+		System.out.println(result);
 	}
 
 }

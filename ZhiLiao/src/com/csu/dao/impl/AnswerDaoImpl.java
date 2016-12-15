@@ -304,5 +304,35 @@ public class AnswerDaoImpl implements AnswerDao{
 		}
 		else return true;
 	}
+
+	/**
+	 * 修改回答点赞数 ++
+	 * @author 刘巧
+	 * @param answerId 回答编号
+	 * @return 是否修改成功：true代表成功，false代表失败
+	 * @time 创建时间：2016-12-15 修改时间：2016-12-15
+	 */
+	@Override
+	public boolean updateAnswerSupport(int answerId) {
+		// TODO Auto-generated method stub
+		
+		String sql="update answer SET support=support+1 WHERE answerId=?";
+				
+		connection = DBUtil.getConnection();
+		try {
+			ps=(PreparedStatement) connection.prepareStatement(sql);
+			ps.setInt(1, answerId);
+			result=ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (result==0) {
+			return false;
+		}
+		else return true;
+	}
 	
 }
