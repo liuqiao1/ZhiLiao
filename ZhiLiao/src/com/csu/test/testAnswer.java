@@ -21,10 +21,10 @@ public class testAnswer {
 	   // test.testInsert();
 	   // test.testDelete();
 	   // test.testUpdate();
-	   // test.testFindAnswerById();
+	    test.testFindAnswerById();
 	   // test.testFindAnswersByQuestion();
 	   // test.testFindAnswersByUser();
-	    testUpdateSupport();
+	   // testUpdateSupport();
 	}
 	
 	public void testInsert() {
@@ -61,7 +61,7 @@ public class testAnswer {
 	
 	public void testFindAnswerById() {
 		AnswerDao answerDao=new AnswerDaoImpl();
-		Answer answer=answerDao.getAnswerById(3);
+		Answer answer=answerDao.getAnswerById(1);
 		System.out.println(answer);
 	}
 	

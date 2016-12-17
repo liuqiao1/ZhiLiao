@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +15,7 @@
 
                 <title>Knowledge Base Theme</title>
 
-                <link rel="shortcut icon" href="images/favicon.png" />
+                <link rel="shortcut icon" href="http://localhost:8080/ZhiLiao/images/favicon.png" />
 
                 <!-- Style Sheet-->
                 <link rel="stylesheet" href="style.css"/>
@@ -34,7 +35,7 @@
 <body>
 
                 <!-- Start of Header -->
-                <div class="header-wrapper">
+               <%--  <div class="header-wrapper">
                         <header>
                                 <div class="container">
 
@@ -42,7 +43,7 @@
                                         <div class="logo-container">
                                                 <!-- Website Logo -->
                                                 <a href="index-2.html"  title="Knowledge Base Theme">
-                                                        <img src="images/logo.png" alt="Knowledge Base Theme">
+                                                        <img src="http://localhost:8080/ZhiLiao/images/logo.png" alt="Knowledge Base Theme">
                                                 </a>
                                                <!-- <span class="tag-line">Premium WordPress Theme</span>-->
                                         </div>
@@ -58,7 +59,7 @@
                                                                 <li><a href="home-categories-articles.html">我的主页</a>
                                                                         <ul class="sub-menu">
                                                                                 <li><a href="blue-skin.html">我提的问题</a></li>
-                                                                                <li><a href="AnswerServlet?method=showMyAnswers">我的回答</a></li>
+                                                                                <li><a href="http://localhost:8080/ZhiLiao/AnswerServlet?method=showMyAnswers">我的回答</a></li>
                                                                                 <li><a href="red-skin.html">我赞过</a></li>
                                                                                 <li><a href="index-2.html">我的评论</a></li>
                                                                                 <li><a href="index-2.html">我的收藏</a></li>
@@ -82,6 +83,7 @@
                                                                         </ul>
                                                                 </li>
                                                                 <li><a href="contact.html">联系我们</a></li>
+                                                                <c:if test="${not empty sessionScope.loginUser }"><li><a href="user?action=userExit">退出</a></li></c:if>
                                                         </ul>
                                                 </div>
                                         </nav>
@@ -89,7 +91,8 @@
 
                                 </div>
                         </header>
-                </div>
+                </div> --%>
+                <jsp:include page="/pages/publicTop.jsp"></jsp:include>
                 <!-- End of Header -->
 
                 <!-- Start of Search Wrapper -->
@@ -298,14 +301,14 @@
                 <a href="#top" id="scroll-top"></a>
 
                 <!-- script -->
-                <script type='text/javascript' src='js/jquery-1.8.3.min.js'></script>
-                <script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
-                <script type='text/javascript' src='js/prettyphoto/jquery.prettyPhoto.js'></script>
-                <script type='text/javascript' src='js/jflickrfeed.js'></script>
-				<script type='text/javascript' src='js/jquery.liveSearch.js'></script>
-                <script type='text/javascript' src='js/jquery.form.js'></script>
-                <script type='text/javascript' src='js/jquery.validate.min.js'></script>
-                <script type='text/javascript' src='js/custom.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery-1.8.3.min.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.easing.1.3.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/prettyphoto/jquery.prettyPhoto.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jflickrfeed.js'></script>
+				<script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.liveSearch.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.form.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.validate.min.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/custom.js'></script>
 
         </body>
 </html>

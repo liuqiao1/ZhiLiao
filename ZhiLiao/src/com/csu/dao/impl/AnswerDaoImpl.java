@@ -134,8 +134,8 @@ public class AnswerDaoImpl implements AnswerDao{
 		
 		String sql="SELECT A.answerId,A.answerContent,A.answerDate,A.asIsAnoy,A.support,"
 				+ "Q.questionTitle,Q.questionDes,Q.questionDate,"
-				+ "U.userName ,U.userImage  "
-				+ "FROM answer A,question Q,users U  "
+				+ "U.userName ,U.image  "
+				+ "FROM answer A,question Q,user U  "
 				+ "WHERE A.answerId=? AND A.questionId=Q.questionId AND A.answerUser=U.userId";
 				
 		connection = DBUtil.getConnection();
@@ -161,7 +161,7 @@ public class AnswerDaoImpl implements AnswerDao{
 				//绑定用户域数据
 				user=new User();
 				user.setUserName(rs.getString("userName"));
-				user.setImage(rs.getString("userImage"));
+				user.setImage(rs.getString("image"));
 				
 				answer.setQuestion(question);
 				answer.setUser(user);
@@ -189,11 +189,11 @@ public class AnswerDaoImpl implements AnswerDao{
 	public List<Answer> getAnswerByQuestionId(int questionId) {
 		// TODO Auto-generated method stub
 		String sql="SELECT answer.*, question.questionTitle, questionDes,"
-				+ "users.userName,users.userImage,users.simpleIntro  "
-				+ "FROM answer,question,users  "
+				+ "user.userName,user.userImage,user.simpleIntro  "
+				+ "FROM answer,question,user  "
 				+ "WHERE answer.questionId=? AND "
 				+ "answer.questionId=question.questionId AND "
-				+ "answer.answerUser=users.userId";
+				+ "answer.answerUser=user.userId";
 		
 		List<Answer> answers=new ArrayList<>();
 		Answer answer=null;

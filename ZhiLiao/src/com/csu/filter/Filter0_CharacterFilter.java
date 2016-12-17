@@ -16,12 +16,12 @@ import javax.servlet.annotation.WebFilter;
  */
 @WebFilter
 ("/*")
-public class CharacterFilter implements Filter {
+public class Filter0_CharacterFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public CharacterFilter() {
+    public Filter0_CharacterFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -40,6 +40,7 @@ public class CharacterFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
+		System.out.println("CharacterFilter...");
 		request.setCharacterEncoding("UTF-8");
 
 		response.setCharacterEncoding("UTF-8");

@@ -31,7 +31,7 @@ public interface AnswerDao {
 	public boolean deleteAnswer(Answer answer);
 	
 	/**
-	 * 根据编号删除一条回答
+	 * 根据编号一条回答
 	 * @author 刘巧
 	 * @param answer 待删除的回答
 	 * @return 是否删除成功：true代表成功，false代表失败

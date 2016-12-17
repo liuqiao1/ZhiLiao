@@ -21,11 +21,11 @@
 
                 <!-- Style Sheet-->
                 <link rel="stylesheet" href="style.css"/>
-                <link rel='stylesheet' id='bootstrap-css-css'  href='../css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='responsive-css-css'  href='../css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='pretty-photo-css-css'  href='../js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-                <link rel='stylesheet' id='main-css-css'  href='../css/main5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='custom-css-css'  href='../css/custom5152.html?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='bootstrap-css-css'  href='http://localhost:8080/ZhiLiao/css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='responsive-css-css'  href='http://localhost:8080/ZhiLiao/css/responsive5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='pretty-photo-css-css'  href='http://localhost:8080/ZhiLiao/js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
+                <link rel='stylesheet' id='main-css-css'  href='http://localhost:8080/ZhiLiao/css/main5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='custom-css-css'  href='http://localhost:8080/ZhiLiao/css/custom5152.html?ver=1.0' type='text/css' media='all' />
 
 
                 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -36,62 +36,7 @@
 </head>
 <body>
 <!-- Start of Header -->
-				<!-- <input type="button" value="sb" id="btn"> -->
-                <div class="header-wrapper">
-                        <header>
-                                <div class="container">
-
-
-                                        <div class="logo-container">
-                                                <!-- Website Logo -->
-                                                <a href="index-2.html"  title="Knowledge Base Theme">
-                                                        <img src="../images/logo.png" alt="Knowledge Base Theme">
-                                                </a>
-                                                <span class="tag-line">Premium WordPress Theme</span>
-                                        </div>
-
-
-                                        <!-- Start of Main Navigation -->
-                                        <nav class="main-nav">
-                                                <div class="menu-top-menu-container">
-                                                        <ul id="menu-top-menu" class="clearfix">
-                                                                <li class="current-menu-item"><a href="index-2.html">首页</a></li>
-                                                                <li><a href="home-categories-description.html">提问</a></li>
-                                                                <li><a href="home-categories-articles.html">我的主页</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="blue-skin.html">我提的问题</a></li>
-                                                                                <li><a href="green-skin.html">我的回答</a></li>
-                                                                                <li><a href="red-skin.html">我赞过</a></li>
-                                                                                <li><a href="index-2.html">我的评论</a></li>
-                                                                                <li><a href="index-2.html">我的收藏</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <!--<li><a href="articles-list.html">Articles List</a></li>-->
-                                                                <li><a href="faq.html">FAQs</a></li>
-                                                                <li><a href="#">皮肤</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="blue-skin.html">Blue Skin</a></li>
-                                                                                <li><a href="green-skin.html">Green Skin</a></li>
-                                                                                <li><a href="red-skin.html">Red Skin</a></li>
-                                                                                <li><a href="index-2.html">Default Skin</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <li><a href="#">More</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="full-width.html">Full Width</a></li>
-                                                                                <li><a href="elements.html">Elements</a></li>
-                                                                                <li><a href="page.html">Sample Page</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <li><a href="contact.html">联系我们</a></li>
-                                                        </ul>
-                                                </div>
-                                        </nav>
-                                        <!-- End of Main Navigation -->
-
-                                </div>
-                        </header>
-                </div>
+				<jsp:include page="/pages/publicTop.jsp"></jsp:include>
                 <!-- End of Header -->
 
                 <!-- Start of Page Container -->
@@ -109,7 +54,7 @@
                             <header class="clearfix">
                             		                                                       
                                     <h5>
-                                   			<img src="../images/question-blue.png">&nbsp;&nbsp;
+                                   			<img src="http://localhost:8080/ZhiLiao/images/question-blue.png">&nbsp;&nbsp;
                                             <!-- <a href="single.html">提问者</a>  -->
                                             &nbsp;&nbsp;<a>${answer.question.questionTitle }</a>
                                     </h5>
@@ -145,8 +90,8 @@
                                             <span class="like-count">${answer.answerSupport }</span>
                                            <!--  <span class="deltete-answer"><a>删除</a></span>
                                             <span class="like-count"><a>修改</a></span> -->
-                                            <a href="../AnswerServlet?method=deleteAnswer&answerId=${answer.answerId }">删除</a>
-                                            <a href="../AnswerServlet?method=goEdit&answerId=${answer.answerId }">修改</a>
+                                            <a href="http://localhost:8080/ZhiLiao/AnswerServlet?method=deleteAnswer&answerId=${answer.answerId }">删除</a>
+                                            <a href="http://localhost:8080/ZhiLiao/AnswerServlet?method=goEdit&answerId=${answer.answerId }">修改</a>
                                  </div>
                             </footer> 
                             
@@ -197,14 +142,14 @@
                 <a href="#top" id="scroll-top"></a>
 
                 <!-- script -->
-                <script type='text/javascript' src='../js/jquery-1.8.3.min.js'></script>
-                <script type='text/javascript' src='../js/jquery.easing.1.3.js'></script>
-                <script type='text/javascript' src='../js/prettyphoto/jquery.prettyPhoto.js'></script>
-                <script type='text/javascript' src='../js/jflickrfeed.js'></script>
-                <script type='text/javascript' src='../js/jquery.liveSearch.js'></script>
-                <script type='text/javascript' src='../js/jquery.form.js'></script>
-                <script type='text/javascript' src='../js/jquery.validate.min.js'></script>
-                <script type='text/javascript' src='../js/custom.js'></script>
-				<script type='text/javascript' src='../js/answerListJs.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery-1.8.3.min.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.easing.1.3.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/prettyphoto/jquery.prettyPhoto.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jflickrfeed.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.liveSearch.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.form.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.validate.min.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/custom.js'></script>
+				<script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/answerListJs.js'></script>
 	</body>
 </html>

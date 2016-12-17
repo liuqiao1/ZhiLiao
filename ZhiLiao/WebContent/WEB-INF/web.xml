@@ -9,36 +9,30 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>userServlet</display-name>
     <servlet-name>userServlet</servlet-name>
     <servlet-class>com.csu.servlet.UserServlet</servlet-class>
   </servlet>
-  
-    <servlet>  
-    <servlet-name>ImageServlet</servlet-name>  
-    <servlet-class>com.csu.servlet.ImageServlet</servlet-class>  
-  </servlet>  
-  
-  
-   <servlet>  
-    <servlet-name>comentServlet</servlet-name>  
-    <servlet-class>com.csu.servlet.CommentServlet</servlet-class>  
-  </servlet>  
-  
-    <servlet-mapping>  
-        <servlet-name>ImageServlet</servlet-name>  
-        <url-pattern>/servlet/ImageServlet</url-pattern>  
-    </servlet-mapping>  
-    
-    <servlet-mapping>
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>com.csu.servlet.ImageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>comentServlet</servlet-name>
+    <servlet-class>com.csu.servlet.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/servlet/ImageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>userServlet</servlet-name>
+    <!-- <url-pattern>/pages/user</url-pattern> -->
     <url-pattern>/pages/user</url-pattern>
   </servlet-mapping>
-  
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>comentServlet</servlet-name>
     <url-pattern>/pages/comment</url-pattern>
   </servlet-mapping>

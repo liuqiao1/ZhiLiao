@@ -10,15 +10,15 @@
 
                 <title>Knowledge Base Theme</title>
 
-                <link rel="shortcut icon" href="../images/favicon.png" />
+                <link rel="shortcut icon" href="http://localhost:8080/ZhiLiao/images/favicon.png" />
 
                 <!-- Style Sheet-->
                 <link rel="stylesheet" href="style.css"/>
-                <link rel='stylesheet' id='bootstrap-css-css'  href='../css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='responsive-css-css'  href='../css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='pretty-photo-css-css'  href='../js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-                <link rel='stylesheet' id='main-css-css'  href='../css/main5152.css?ver=1.0' type='text/css' media='all' />
-                <link rel='stylesheet' id='custom-css-css'  href='../css/custom5152.html?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='bootstrap-css-css'  href='http://localhost:8080/ZhiLiao/css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='responsive-css-css'  href='http://localhost:8080/ZhiLiao/css/responsive5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='pretty-photo-css-css'  href='http://localhost:8080/ZhiLiao/js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
+                <link rel='stylesheet' id='main-css-css'  href='http://localhost:8080/ZhiLiao/css/main5152.css?ver=1.0' type='text/css' media='all' />
+                <link rel='stylesheet' id='custom-css-css'  href='http://localhost:8080/ZhiLiao/css/custom5152.html?ver=1.0' type='text/css' media='all' />
 
 
                 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -28,61 +28,7 @@
 </head>
 <body>
 <!-- Start of Header -->
-                <div class="header-wrapper">
-                        <header>
-                                <div class="container">
-
-
-                                        <div class="logo-container">
-                                                <!-- Website Logo -->
-                                                <a href="index-2.html"  title="Knowledge Base Theme">
-                                                        <img src="../images/logo.png" alt="Knowledge Base Theme">
-                                                </a>
-                                                <span class="tag-line">Premium WordPress Theme</span>
-                                        </div>
-
-
-                                        <!-- Start of Main Navigation -->
-                                        <nav class="main-nav">
-                                                <div class="menu-top-menu-container">
-                                                        <ul id="menu-top-menu" class="clearfix">
-                                                                <li class="current-menu-item"><a href="index-2.html">首页</a></li>
-                                                                <li><a href="home-categories-description.html">提问</a></li>
-                                                                <li><a href="home-categories-articles.html">我的主页</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="blue-skin.html">我提的问题</a></li>
-                                                                                <li><a href="green-skin.html">我的回答</a></li>
-                                                                                <li><a href="red-skin.html">我赞过</a></li>
-                                                                                <li><a href="index-2.html">我的评论</a></li>
-                                                                                <li><a href="index-2.html">我的收藏</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <!--<li><a href="articles-list.html">Articles List</a></li>-->
-                                                                <li><a href="faq.html">FAQs</a></li>
-                                                                <li><a href="#">皮肤</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="blue-skin.html">Blue Skin</a></li>
-                                                                                <li><a href="green-skin.html">Green Skin</a></li>
-                                                                                <li><a href="red-skin.html">Red Skin</a></li>
-                                                                                <li><a href="index-2.html">Default Skin</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <li><a href="#">More</a>
-                                                                        <ul class="sub-menu">
-                                                                                <li><a href="full-width.html">Full Width</a></li>
-                                                                                <li><a href="elements.html">Elements</a></li>
-                                                                                <li><a href="page.html">Sample Page</a></li>
-                                                                        </ul>
-                                                                </li>
-                                                                <li><a href="contact.html">联系我们</a></li>
-                                                        </ul>
-                                                </div>
-                                        </nav>
-                                        <!-- End of Main Navigation -->
-
-                                </div>
-                        </header>
-                </div>
+                <jsp:include page="/pages/publicTop.jsp"></jsp:include>
                 <!-- End of Header -->
 
                 <!-- Start of Search Wrapper -->
@@ -294,14 +240,14 @@
                 <a href="#top" id="scroll-top"></a>
 
                 <!-- script -->
-                <script type='text/javascript' src='../js/jquery-1.8.3.min.js'></script>
-                <script type='text/javascript' src='../js/jquery.easing.1.34e44.js?ver=1.3'></script>
-                <script type='text/javascript' src='../js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4'></script>
-                <script type='text/javascript' src='../js/jquery.liveSearchd5f7.js?ver=2.0'></script>
-				<script type='text/javascript' src='../js/jflickrfeed.js'></script>
-                <script type='text/javascript' src='../js/jquery.formd471.js?ver=3.18'></script>
-                <script type='text/javascript' src='../js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
-                <script type='text/javascript' src='../js/custom5152.js?ver=1.0'></script>
-                <script type='text/javascript' src='../js/answerListJs.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery-1.8.3.min.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.easing.1.34e44.js?ver=1.3'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.liveSearchd5f7.js?ver=2.0'></script>
+				<script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jflickrfeed.js'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.formd471.js?ver=3.18'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/custom5152.js?ver=1.0'></script>
+                <script type='text/javascript' src='http://localhost:8080/ZhiLiao/js/answerListJs.js'></script>
 </body>
 </html>

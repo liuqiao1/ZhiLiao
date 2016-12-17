@@ -12,7 +12,7 @@ public class Save {
 	private String foldName;//收藏夹标题
 	private String foldDes;//收藏夹的描述
 	private int isPublic;//收藏夹是否公开
-	//private ? User;//回答者：王俊强的user POJO写出来后引用
+	private User user;//回答者：王俊强的user POJO写出来后引用
 	//private ? answer;//回答：王俊强的user POJO写出来后引用
 	//private ? question;//问题：老司机的question POJO写出来后引用
 		
@@ -43,6 +43,13 @@ public class Save {
 		this.isPublic = isPublic;
 	}
 	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Save() {
 		// TODO Auto-generated constructor stub
 	}

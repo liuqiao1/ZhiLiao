@@ -1621,4 +1621,23 @@ a#scroll-top:hover {
   	font-weight: 600;
   	padding: 3px 5px 3px 20px;
 }
+/*qSubmit.jsp*/
+.qst-info{
+	padding-left:300px;
+	padding-right:300px;
+	padding-bottom:30px;
+	
+}
+.qst-title input{
+	width:500px;
+	height:40px;
+}
+.qst-des textarea{
+	width:500px;
+	height:200px;
+}
+.qSubmit-op{
+	padding-left:500px;
+	padding-right:500px;
+}
 

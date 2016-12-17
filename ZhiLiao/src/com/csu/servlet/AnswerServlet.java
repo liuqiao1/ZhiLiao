@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.csu.bean.Answer;
+import com.csu.bean.User;
 import com.csu.dao.AnswerDao;
 import com.csu.dao.impl.AnswerDaoImpl;
 import com.csu.util.TimeUtil;
@@ -24,7 +25,7 @@ import com.csu.util.TimeUtil;
 public class AnswerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AnswerDao answerDao=new AnswerDaoImpl();
-       
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -63,7 +64,7 @@ public class AnswerServlet extends HttpServlet {
 	        }
 	}
 	
-	public void submitAnswer(HttpServletRequest request, HttpServletResponse response) {
+	public void submitAnswer(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String word_content = request.getParameter("container");
 		String isAnoy=request.getParameter("isAnoy");
@@ -87,7 +88,7 @@ public class AnswerServlet extends HttpServlet {
 	    //根据执行结果选择跳转
 	    if (result) {//回答成功:跳转到 问题详情页
 			//response.sendRedirect("");
-	    	
+	    	response.sendRedirect("http://localhost:8080/ZhiLiao/pages/admin/answerList.jsp");
 		}
 	    else{//回答失败 //可选择留在写回答页  或者 返回问题详情页
 	    	//response.sendRedirect("");
@@ -98,15 +99,19 @@ public class AnswerServlet extends HttpServlet {
 	
 	public void showMyAnswers(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//System.out.println("showMyAnswers....");
-		List<Answer> myAnswers=answerDao.getAnswerByUserId(1);
+		HttpSession session=request.getSession();
+		User user=(User) session.getAttribute("loginUser");
+		
+		List<Answer> myAnswers=answerDao.getAnswerByUserId(user.getUserId());
 		//System.out.println("myAnswers:"+myAnswers);
 		if (myAnswers.size()==0) {
 			System.out.println("你还没有回答过任何问题");
+			response.sendRedirect("pages/noContent.jsp");
 		}
 		else{
-			HttpSession session = request.getSession();
+			//HttpSession session = request.getSession();
 			session.setAttribute("myAnswers", myAnswers);
-			response.sendRedirect("pages/myAnswers.jsp");
+			response.sendRedirect("pages/admin/myAnswers.jsp");
 		}
 	}
 	
@@ -149,10 +154,12 @@ public class AnswerServlet extends HttpServlet {
 	    if (result) {//回答成功:跳转到 问题详情页
 			//response.sendRedirect("");
 	    	System.out.println("修改成功");
+	    	showMyAnswers(request, response);
 		}
 	    else{//回答失败 //可选择留在写回答页  或者 返回问题详情页
 	    	//response.sendRedirect("");
 	    	System.out.println("修改失败");
+	    	response.sendRedirect("pages/error.jsp");
 	    }
 		//return null;		
 		
@@ -163,7 +170,7 @@ public class AnswerServlet extends HttpServlet {
 		Answer answer=answerDao.getAnswerById(answerId);
 		System.out.println(answer);
 		request.setAttribute("answerWaitToUpdate", answer);
-		request.getRequestDispatcher("pages/writeAnswer.jsp").forward(request,response);
+		request.getRequestDispatcher("pages/admin/writeAnswer.jsp").forward(request,response);
 	}
 
 }
